@@ -75,7 +75,7 @@ def add_quiz():
 
     options = []
     for i in range(4):
-        option = input("보기를 입력하세요: ")
+        option = input(f"{i + 1}번 보기를 입력하세요: ")
         options.append(option)
 
     answer = int(input("정답 번호를 입력해주세요(1~4): "))
