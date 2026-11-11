@@ -1,12 +1,12 @@
 quiz_list = [
     {
         "question": "문제",
-        "choices": ["1. o", "2. o", "3. o", "4. x"],
+        "choices": ["o", "o", "o", "x"],
         "answer": 4
     },
     {
         "question": "문제",
-        "choices": ["1. x", "2. o", "3. o", "4. o"],
+        "choices": ["x", "o", "o", "o"],
         "answer": 1
     }
 ]
@@ -42,12 +42,23 @@ def main():
 
 
 def start_quiz():
-    quiz = quiz_list[0]
+    score = 0
 
-    print(quiz["question"])
+    for quiz in quiz_list:
+        print(quiz["question"])
+        
+        for i in range(len(quiz["choices"])):
+            print(i + 1, quiz["choices"][i])
+        
+        user_answer = input("정답 번호를 입력하세요: ").strip()
+        
+        if user_answer == str(quiz["answer"]):
+            print("⭕ 정답입니다!")
+            score = score + 1
+        else:
+            print("❌ 틀렸습니다! 정답은", quiz["answer"], "번입니다.")
 
-    for i in range(len(quiz["choices"])):
-        print(i + 1, quiz["choices"])
+    print("총", len(quiz_list), "문제 중", score, "개를 맞혔읍니다.")
 
 
 if __name__ == "__main__":
