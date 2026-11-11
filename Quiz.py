@@ -11,6 +11,7 @@ quiz_list = [
     }
 ]
 
+
 def show_menu():
     print("\n====퀴즈게임====")
     print("1. 퀴즈 풀기")
@@ -33,7 +34,7 @@ def main():
         elif choice == "3":
             print("[퀴즈 목록] 기능은 아직 준비 중이에요.")
         elif choice == "4":
-            print("[점수 확인] 기능은 아직 준비 중이에요.")
+            show_score()
         elif choice == "5":
             print("프로그램을 종료 합니다. 수고하셨습니다.")
             break
@@ -42,6 +43,7 @@ def main():
 
 
 def start_quiz():
+    global last_score
     score = 0
 
     for quiz in quiz_list:
@@ -58,7 +60,12 @@ def start_quiz():
         else:
             print("❌ 틀렸습니다! 정답은", quiz["answer"], "번입니다.")
 
-    print("총", len(quiz_list), "문제 중", score, "개를 맞혔읍니다.")
+    print("총", len(quiz_list), "문제 중", score, "개를 맞혔습니다.")
+    last_score = score
+
+
+def show_score():
+    print("최근 점수는", last_score, "점입니다.")
 
 
 if __name__ == "__main__":
