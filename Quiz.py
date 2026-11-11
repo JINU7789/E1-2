@@ -30,7 +30,7 @@ def main():
         if choice == "1":
             start_quiz()
         elif choice == "2":
-            print("[퀴즈 추가] 기능은 아직 준비 중이에요.")
+            add_quiz()
         elif choice == "3":
             print("[퀴즈 목록] 기능은 아직 준비 중이에요.")
         elif choice == "4":
@@ -66,6 +66,20 @@ def start_quiz():
 
 def show_score():
     print("최근 점수는", last_score, "점입니다.")
+
+
+def add_quiz():
+    question = input("문제를 입력하세요: ")
+
+    options = []
+    for i in range(4):
+        option = input("보기를 입력하세요: ")
+        options.append(option)
+
+    answer = int(input("정답 번호를 입력해주세요(1~4): "))
+
+    quiz_list.append({"question": question, "choices": options, "answer": answer})
+    print("문제가 추가되었어요! 👍")
 
 
 if __name__ == "__main__":
