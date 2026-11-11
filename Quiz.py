@@ -11,6 +11,8 @@ quiz_list = [
     }
 ]
 
+last_score = 0
+
 
 def show_menu():
     print("\n====퀴즈게임====")
@@ -32,7 +34,7 @@ def main():
         elif choice == "2":
             add_quiz()
         elif choice == "3":
-            print("[퀴즈 목록] 기능은 아직 준비 중이에요.")
+            show_quiz_list()
         elif choice == "4":
             show_score()
         elif choice == "5":
@@ -80,6 +82,13 @@ def add_quiz():
 
     quiz_list.append({"question": question, "choices": options, "answer": answer})
     print("문제가 추가되었어요! 👍")
+
+
+def show_quiz_list():
+    print("\n==== 퀴즈 목록 ====")
+    for quiz in quiz_list:
+        print(quiz["question"])
+    print("==================")
 
 
 if __name__ == "__main__":
