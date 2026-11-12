@@ -1,0 +1,65 @@
+{
+  "quizzes": [
+    {
+      "question": "리스트 맨 뒤에 값을 추가하는 메서드는?",
+      "choices": [
+        ".add()",
+        ".append()",
+        ".push()",
+        ".insert()"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "파이썬에서 한 줄 주석을 다는 기호는?",
+      "choices": [
+        "//",
+        "/* */",
+        "#",
+        "--"
+      ],
+      "answer": 3
+    },
+    {
+      "question": "print(2 ** 3) 의 출력 결과는??",
+      "choices": [
+        "6",
+        "8",
+        "9",
+        "5"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "문자열 양쪽 공백을 제거하는 메서드는?",
+      "choices": [
+        ".strip()",
+        ".clear()",
+        ".cut",
+        ".trim()"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "딕셔너리를 만들 때 쓰는 기호는??",
+      "choices": [
+        "[]",
+        "()",
+        "{}",
+        "<>"
+      ],
+      "answer": 3
+    },
+    {
+      "question": "range(3) 이 만드는 숫자는?",
+      "choices": [
+        "1, 2, 3",
+        "0, 1, 2",
+        "0, 1, 2, 3",
+        "1, 2"
+      ],
+      "answer": 2
+    }
+  ],
+  "best_score": 1
+}

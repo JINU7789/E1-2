@@ -1,32 +1,52 @@
-quiz_list = [
+import json
+import os
+
+STATE_FILE = "state.json"
+
+DEFAULT_QUIZZES = [
     {
-        "question": "Q1. 리스트 맨 뒤에 값을 추가하는 메서드는?",
+        "question": "리스트 맨 뒤에 값을 추가하는 메서드는?",
         "choices": [".add()", ".append()", ".push()", ".insert()"],
         "answer": 2
     },
     {
-        "question": "Q2. 파이썬에서 한 줄 주석을 다는 기호는?",
+        "question": "파이썬에서 한 줄 주석을 다는 기호는?",
         "choices": ["//", "/* */", "#", "--"],
         "answer": 3
     },
     {
-        "question": "Q3. print(2 ** 3) 의 출력 결과는??",
+        "question": "print(2 ** 3) 의 출력 결과는?",
         "choices": ["6", "8", "9", "5"],
         "answer": 2
     },
     {
-        "question": "Q4. 문자열 양쪽 공백을 제거하는 메서드는?",
+        "question": "문자열 양쪽 공백을 제거하는 메서드는?",
         "choices": [".strip()", ".clear()", ".cut", ".trim()"],
         "answer": 1
     },
     {
-        "question": "Q5. 딕셔너리를 만들 때 쓰는 기호는??",
+        "question": "딕셔너리를 만들 때 쓰는 기호는?",
         "choices": ["[]", "()", "{}", "<>"],
         "answer": 3
     },
 ]
 
+def load_state():
+    if not os.path.exists(STATE_FILE):
+        print("저장 파일이 없어 기본 데이터로 시작합니다.")
+        return DEFAULT_QUIZZES, 0
+
+    try:
+        with open(STATE_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return data["quizzes"], data["best_score"]
+    except (json.JSONDecodeError, KeyError, OSError) as e:
+        print(f"파일을 읽을 수 없어 기본 데이터로 시작합니다. ({e})")
+        return DEFAULT_QUIZZES, 0
+
+
 last_score = 0
+best_score = 0
 
 
 def show_menu():
@@ -80,12 +100,18 @@ def start_quiz():
     print("총", len(quiz_list), "문제 중", score, "개를 맞혔습니다.")
     last_score = score
 
+    if score > best_score:
+        best_score - score
+        print("최고 점수예요!")
+
 
 def show_score():
     print("최근 점수는", last_score, "점입니다.")
+    print("최고 점수는", best_score, "점입니다.")
 
 
 def add_quiz():
+    global quiz_list
     question = input("문제를 입력하세요: ")
 
     options = []
@@ -105,6 +131,22 @@ def show_quiz_list():
         print(quiz["question"])
     print("==================")
 
+def save_state(quizzes, best_score):
+    data = {
+        "quizzes": quizzes,
+        "best_score": best_score
+    }
+    try:
+        with open(STATE_FILE, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+        print("저장 완료! 💾")
+    except OSError as e:
+        print(f"저장에 실패했습니다. ({e})")
+
 
 if __name__ == "__main__":
+    global_quizzes, global_best = load_state()
+    quiz_list = global_quizzes
+    best_score = global_best
     main()
+    save_state(quiz_list, best_score)
