@@ -36,13 +36,9 @@ python main.py
 
 > 환경에 따라 `python3 main.py` 로 실행합니다.
 
-실행하면 아래 메뉴가 나타납니다.
-
-![메뉴 화면](docs/screenshots/menu.png)
-
 ---
 
-## ✨ 기능 목록
+## ✨ 기능 목록 및 실행 화면
 
 | 번호 | 기능 | 설명 |
 |------|------|------|
@@ -52,25 +48,33 @@ python main.py
 | 4 | 점수 확인 | 최고 점수와 최근 점수를 확인합니다. |
 | 5 | 종료 | 데이터를 저장하고 프로그램을 종료합니다. |
 
-**퀴즈 풀기**
+**메뉴 화면** — 실행 시 저장된 데이터를 불러옵니다.
+
+![메뉴 화면](docs/screenshots/menu.png)
+
+**① 퀴즈 풀기**
 
 ![퀴즈 풀기](docs/screenshots/play.png)
 
-**퀴즈 추가**
+**결과 화면** — 모든 문제를 풀면 점수와 최고 점수 갱신 여부를 표시합니다.
+
+![결과 화면](docs/screenshots/result.png)
+
+**② 퀴즈 추가**
 
 ![퀴즈 추가](docs/screenshots/add_quiz.png)
 
-**퀴즈 목록**
+**③ 퀴즈 목록**
 
 ![퀴즈 목록](docs/screenshots/quiz_list.png)
 
-**점수 확인**
+**④ 점수 확인**
 
 ![점수 확인](docs/screenshots/score.png)
 
-**자동 저장 / 불러오기** — 종료 시 저장되고, 실행 시 불러옵니다.
+**⑤ 종료**
 
-![저장](docs/screenshots/save.png)
+![종료](docs/screenshots/exit.png)
 
 ### 메뉴·입력 안내 (유효성 규칙)
 
@@ -81,6 +85,8 @@ python main.py
 - **허용 범위 밖**(메뉴에서 9, 정답에서 0 등) → `⚠️ 범위를 벗어났습니다...`
 - 입력 앞뒤 **공백은 자동 제거** 후 처리합니다.
 - 실행 중 **`Ctrl+C`(KeyboardInterrupt)** 나 **입력 종료(EOF)** 가 발생해도 비정상 종료하지 않고, 안내 후 **저장하고 안전하게 종료**합니다.
+
+![잘못된 입력 처리](docs/screenshots/play_invalid.png)
 
 ---
 
@@ -127,13 +133,20 @@ E1-2/
 ├── README.md            # 프로젝트 설명 문서
 ├── .gitignore           # Git 추적 제외 설정 (__pycache__ 등)
 └── docs/
-    └── screenshots/     # 실행 화면 캡처
-        ├── menu.png
-        ├── play.png
-        ├── add_quiz.png
-        ├── quiz_list.png
-        ├── score.png
-        └── save.png
+    └── screenshots/     # 실행 화면·Git 캡처
+        ├── menu.png          # 메뉴
+        ├── play.png          # 퀴즈 풀기
+        ├── play_invalid.png  # 잘못된 입력 처리
+        ├── result.png        # 결과 화면
+        ├── add_quiz.png      # 퀴즈 추가
+        ├── quiz_list.png     # 퀴즈 목록
+        ├── score.png         # 점수 확인
+        ├── exit.png          # 종료
+        ├── git_graph.png     # 커밋 그래프
+        ├── clone.png         # clone 실습
+        ├── pull.png          # pull 실습
+        ├── env_python.png    # Python 버전
+        └── env_git.png       # git 버전
 ```
 
 ---
@@ -193,27 +206,38 @@ E1-2/
 | `Refactor:` | 구조 개선 | `Refactor: QuizGame 책임 분리` |
 | `Docs:` | 문서 | `Docs: README 실행 방법 추가` |
 
-### 사용한 Git 명령어
+### 커밋 그래프 (브랜치 생성·병합)
+
+`feature/oop-refactor` 브랜치에서 클래스 리팩터링 작업 후 `main`으로 병합했습니다.
+
+![커밋 그래프](docs/screenshots/git_graph.png)
+
+### clone / pull 실습
 
 `init`, `add`, `commit`, `push`, `pull`, `checkout`, `clone` 7종을 모두 사용했습니다.
-
-**clone / pull 실습**
 
 ```bash
 # 저장소를 별도 폴더에 복제
 git clone https://github.com/JINU7789/E1-2.git E1-2-clone
+cd E1-2-clone
 
 # 복제본에서 변경 후 커밋/푸시
-cd E1-2-clone
-# (README에 한 줄 추가 등)
 git add .
-git commit -m "Docs: clone 실습 변경"
+git commit -m "Docs: clone/pull 실습용 한 줄 추가"
 git push
 
 # 기존 작업 폴더에서 변경사항 가져오기
 cd ../E1-2
 git pull
 ```
+
+**clone 실행**
+
+![clone 실습](docs/screenshots/clone.png)
+
+**pull 실행** — 변경사항이 Fast-forward로 반영됩니다.
+
+![pull 실습](docs/screenshots/pull.png)
 
 ---
 
@@ -243,7 +267,10 @@ git pull
 
 ## 🧰 개발 환경
 
-- Python 3.10 이상
+- **Python 3.12.3** (요구: 3.10 이상)
+- **git 2.43.0**
 - 외부 라이브러리 없이 표준 라이브러리만 사용 (`json`, `os`, `shutil`)
 
-- clone/pull 실습 확인
+![Python 버전](docs/screenshots/env_python.png)
+
+![git 버전](docs/screenshots/env_git.png)
