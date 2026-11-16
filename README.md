@@ -245,3 +245,5 @@ git pull
 
 - Python 3.10 이상
 - 외부 라이브러리 없이 표준 라이브러리만 사용 (`json`, `os`, `shutil`)
+
+- clone/pull 실습 확인
