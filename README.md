@@ -2,6 +2,9 @@
 
 터미널에서 동작하는 콘솔 기반 퀴즈 게임입니다. Python 기본 문법과 객체 지향(클래스), JSON 파일 저장으로 데이터 영속성을 구현하고, Git으로 변경 이력을 관리한 미션 과제입니다.
 
+- **GitHub 저장소**: https://github.com/JINU7789/E1-2
+- **커밋 수**: 19개 (브랜치 생성·병합 포함) / **Python** 3.12.3 / **git** 2.43.0
+
 ---
 
 ## 📖 프로젝트 개요
@@ -35,6 +38,57 @@ python main.py
 ```
 
 > 환경에 따라 `python3 main.py` 로 실행합니다.
+
+### 실행 로그 (텍스트)
+
+아래는 실제 실행 출력입니다. 메뉴 → 퀴즈 풀기 → 잘못된 입력 재시도 흐름을 보여줍니다.
+
+```text
+📂 저장된 데이터를 불러왔습니다. (퀴즈 7개, 최고점수 1점)
+
+========================================
+           🎯 나만의 퀴즈 게임 🎯
+========================================
+  1. 퀴즈 풀기
+  2. 퀴즈 추가
+  3. 퀴즈 목록
+  4. 점수 확인
+  5. 종료
+========================================
+선택: 1
+
+📝 퀴즈를 시작합니다! (총 7문제)
+----------------------------------------
+[문제 1]
+리스트 맨 뒤에 값을 추가하는 메서드는?
+  1. .add()
+  2. .append()
+  3. .push()
+  4. .insert()
+정답 입력: 2
+✅ 정답입니다!
+...
+----------------------------------------
+[문제 4]
+문자열 양쪽 공백을 제거하는 메서드는?
+  1. .strip()
+  2. .clear()
+  3. .cut
+  4. .trim()
+정답 입력: 9
+⚠️ 범위를 벗어났습니다. 1~4 사이의 숫자를 입력하세요.
+정답 입력: abc
+⚠️ 숫자가 아닙니다. 1~4 사이의 숫자를 입력하세요.
+정답 입력:
+⚠️ 빈 입력입니다. 1~4 사이의 숫자를 입력하세요.
+정답 입력: 1
+✅ 정답입니다!
+...
+========================================
+🏆 결과: 7문제 중 7문제 정답! (7점)
+🎉 새로운 최고 점수입니다!
+========================================
+```
 
 ---
 
@@ -208,7 +262,32 @@ E1-2/
 
 ### 커밋 그래프 (브랜치 생성·병합)
 
-`feature/oop-refactor` 브랜치에서 클래스 리팩터링 작업 후 `main`으로 병합했습니다.
+`feature/oop-refactor` 브랜치에서 클래스 리팩터링 작업 후 `main`으로 병합했습니다. 총 19개 커밋이며, 아래 `|\` `|/` 부분이 브랜치 생성·병합 기록입니다.
+
+```text
+$ git log --oneline --graph
+* d34e585 Docs: 최신 실행 화면·Git 스크린샷 추가 및 README 재정리
+* 8b83477 Docs: clone/pull 실습용 한 줄 추가
+* baee7ef Docs: README 보완 (클래스 설계·입력 규칙·커밋 규칙·clone/pull·성능·수정 포인트)
+*   9728659 Merge branch 'feature/oop-refactor': OOP 리팩터링 병합
+|\
+| * 9f13831 Refactor: Quiz/QuizGame 클래스로 구조 분리 및 버그·입력검증 보강
+|/
+* dcdc273 Docs: README 재작성 (요구 항목 전체 반영, 이미지 경로/실행법 정리)
+* 8b35272 Refactor: 파일 구조 정리 (진입점 Quiz.py→main.py, 스크린샷 docs/screenshots로 이동)
+* db5470e Git 저장소 복제 실습
+* ddc55cc README.md 수정 및 스크린샷 추가
+* 20061c1 파일저장/불러오기, 최고 점수 추가
+* 1455c98 문제 생성 및 추가
+* f4a3d45 2. 퀴즈 추가 기능 수정
+* d495400 3. 퀴즈 목록 기능 추가
+* 091187e 2. 문제 추가 기능 추가
+* 60d5530 점수 집계 기능 및 4. 점수 확인 기능 추가
+* e0cc752 1. 퀴즈 풀기 기능 추가
+* e02c622 퀴즈 목록 생성
+* 0c0e6a0 퀴즈게임 1단계: 메뉴 시스템 구현
+* e58a149 Initial commit
+```
 
 ![커밋 그래프](docs/screenshots/git_graph.png)
 
@@ -231,11 +310,32 @@ cd ../E1-2
 git pull
 ```
 
-**clone 실행**
+**clone 실행 로그**
+
+```text
+$ git clone https://github.com/JINU7789/E1-2.git E1-2-clone
+Cloning into 'E1-2-clone'...
+remote: Enumerating objects: 60, done.
+remote: Counting objects: 100% (60/60), done.
+remote: Compressing objects: 100% (42/42), done.
+remote: Total 60 (delta 19), reused 53 (delta 16), pack-reused 0
+Receiving objects: 100% (60/60), 119.54 KiB | 6.64 MiB/s, done.
+Resolving deltas: 100% (19/19), done.
+```
 
 ![clone 실습](docs/screenshots/clone.png)
 
-**pull 실행** — 변경사항이 Fast-forward로 반영됩니다.
+**pull 실행 로그** — 변경사항이 Fast-forward로 반영됩니다.
+
+```text
+$ git pull
+From https://github.com/JINU7789/E1-2
+   baee7ef..8b83477  main     -> origin/main
+Updating baee7ef..8b83477
+Fast-forward
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+```
 
 ![pull 실습](docs/screenshots/pull.png)
 
