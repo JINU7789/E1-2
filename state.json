@@ -69,7 +69,17 @@
         "=>"
       ],
       "answer": 2
+    },
+    {
+      "question": "퀴즈 추가 예시",
+      "choices": [
+        "x",
+        "x",
+        "o",
+        "x"
+      ],
+      "answer": 3
     }
   ],
-  "best_score": 1
+  "best_score": 7
 }
