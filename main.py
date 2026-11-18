@@ -14,7 +14,7 @@ STATE_FILE = "state.json"       # 데이터 저장 파일 (프로젝트 루트)
 BACKUP_FILE = "state.json.bak"  # 손상 파일 백업본
 
 # 파일이 없는 첫 실행에 사용할 기본 퀴즈
-# 주제: 파이썬 기초 문법 / 총 7문제 (요구 조건: 5문제 이상)
+# 주제: 파이썬 기초 문법 / 총 5문제 (요구 조건: 5문제 이상)
 DEFAULT_QUIZZES = [
     {"question": "리스트 맨 뒤에 값을 추가하는 메서드는?",
      "choices": [".add()", ".append()", ".push()", ".insert()"], "answer": 2},
@@ -26,10 +26,6 @@ DEFAULT_QUIZZES = [
      "choices": [".strip()", ".clear()", ".cut()", ".trim()"], "answer": 1},
     {"question": "딕셔너리를 만들 때 쓰는 기호는?",
      "choices": ["[]", "()", "{}", "<>"], "answer": 3},
-    {"question": "range(3) 이 만드는 숫자는?",
-     "choices": ["1, 2, 3", "0, 1, 2", "0, 1, 2, 3", "1, 2"], "answer": 2},
-    {"question": "\"같다\"를 비교하는 연산자는?",
-     "choices": ["=", "==", "!=", "=>"], "answer": 2},
 ]
 
 

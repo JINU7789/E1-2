@@ -21,7 +21,7 @@
       "answer": 3
     },
     {
-      "question": "print(2 ** 3) 의 출력 결과는??",
+      "question": "print(2 ** 3) 의 출력 결과는?",
       "choices": [
         "6",
         "8",
@@ -35,13 +35,13 @@
       "choices": [
         ".strip()",
         ".clear()",
-        ".cut",
+        ".cut()",
         ".trim()"
       ],
       "answer": 1
     },
     {
-      "question": "딕셔너리를 만들 때 쓰는 기호는??",
+      "question": "딕셔너리를 만들 때 쓰는 기호는?",
       "choices": [
         "[]",
         "()",
@@ -49,37 +49,7 @@
         "<>"
       ],
       "answer": 3
-    },
-    {
-      "question": "range(3) 이 만드는 숫자는?",
-      "choices": [
-        "1, 2, 3",
-        "0, 1, 2",
-        "0, 1, 2, 3",
-        "1, 2"
-      ],
-      "answer": 2
-    },
-    {
-      "question": "\"같다\"를 비교하는 연산자는",
-      "choices": [
-        "=",
-        "==",
-        "!=",
-        "=>"
-      ],
-      "answer": 2
-    },
-    {
-      "question": "퀴즈 추가 예시",
-      "choices": [
-        "x",
-        "x",
-        "o",
-        "x"
-      ],
-      "answer": 3
     }
   ],
-  "best_score": 7
+  "best_score": 0
 }
